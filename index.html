@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/chart.min.js"></script>
+    <title>Gabriela Panicio Vizu - Psicóloga</title>
+</head>
+<body>
+    <div id="superfice">
+        <header>
+            <nav>
+                <ul class="menu-vertical list">
+                    <li><a href="#sectionIntro" data-role="slide-scroll">SOBRE</a></li>
+                    <li><a href="#sectionFormacaoAcademica" data-role="slide-scroll">FORMAÇÃO ACADÊMICA</a></li>
+                    <li><a href="#" data-role="slide-scrolla">EXPERIÊNCIAS</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="container">
+            <section id="sectionIntro"> 
+                <img src="assets/images/gabrielapv.png" alt="Foto de Perfil">
+                <h1>GABRIELA PANICIO VIZU</h1>
+                <p class="subtitle">PSICÓLOGA JUNGUINANA</p>
+            </section>
+            <section id="sectionSobre">
+                <h2>SOBRE GABRIELA</h2>
+                <p>Trabalho na área social de psicologia coordenando grupos recreativos, pré-terapêuticos e terapêuticos.</p>
+            </section>
+            <section id="sectionFormacaoAcademica">
+                <h2>FORMAÇÃO ACADÊMICA</h2>
+                <div class="chart-area">
+                    <div class="chart chart-aside flex-container">
+                        <div class="chart-container">
+                            <canvas id="situacaoAcademicaAnhembiMorumbi" width="200" height="200"></canvas>
+                        </div>
+                        <div class="chart-description">
+                            <ul class="list">
+                                <li><b>Curso: </b>Bacharelado, Psicologia</li>
+                                <li><b>Instituição: </b>Universidade Anhembi Morumbi</li>
+                                <li><b>Situação: </b>Cursando</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div id="experienciasBanner" class="no-base-margin">
+            <img alt="Topo do iceberg" src="assets/images/glacier-top.svg" class="glacier glacier-top">
+        </div>
+    </div>
+    <div id="profundidade">
+        <div class="experiencia no-base-margin">
+            <div class="glacier-container">
+                <img alt="Base do iceberg" src="assets/images/glacier-base.svg" class="glacier glacier-base">
+            </div>
+            <div class="experiencia-descricao">
+                <h2>TRABALHOS COM GRUPOS RECREATIVOS</h2>
+                <p>Lar Sírio - Pró-Infância</p>
+                <p>De 02/2016 até 01/2017</p>
+            </div>
+        </div>
+        <div class="experiencia no-base-margin">
+                <div class="glacier-container">
+                    <img alt="Base do iceberg" src="assets/images/glacier-base.svg" class="glacier glacier-base">
+                </div>
+                <div class="experiencia-descricao">
+                    <h2>TRABALHOS COM GRUPOS RECREATIVOS</h2>
+                    <p>Lar Sírio - Pró-Infância</p>
+                    <p>De 02/2016 até 01/2017</p>
+                </div>
+            </div>
+            <div class="experiencia no-base-margin">
+                    <div class="glacier-container">
+                        <img alt="Base do iceberg" src="assets/images/glacier-base.svg" class="glacier glacier-base">
+                    </div>
+                    <div class="experiencia-descricao">
+                        <h2>TRABALHOS COM GRUPOS RECREATIVOS</h2>
+                        <p>Lar Sírio - Pró-Infância</p>
+                        <p>De 02/2016 até 01/2017</p>
+                    </div>
+                </div>
+            <div class="glacier-container">
+                <img alt="Base do iceberg" src="assets/images/glacier-bottom.svg" class="glacier glacier-bottom">
+            </div>
+    </div>
+
+    <!--Charts from chart.js-->
+    <script>
+        window.addEventListener('load', () => {
+            let ctxChartAnhembiMorumbi = document.querySelector("#situacaoAcademicaAnhembiMorumbi").getContext("2d");
+            var myChart = new Chart(ctxChartAnhembiMorumbi, {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [80, 20],
+                        backgroundColor: [
+                            '#12076E',
+                            'rgba(0, 0, 0, 0)',
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+
+                        borderWidth: 0
+                    }]
+                },
+
+                options : {
+                    rotation : 45.8,
+                    tooltips: {
+                        enabled : false
+                    }
+                }
+            });
+        });
+
+        document.querySelectorAll("a[data-role=slide-scroll]").forEach(e => {
+            let linkedElement = e.getAttribute("href");
+            
+            //Check for errors
+            if(!linkedElement){
+                throw 'The slide scroll element must have an linked element by href';
+            }
+
+            //Remove the href from the anchor element
+            e.removeAttribute('href');
+            e.style.cursor = "pointer";
+
+            //Get the linked element and add the scroll event
+            linkedElement = document.querySelector(linkedElement);
+            e.addEventListener('click', () => {
+                let elementTop = e.getClientRects().top;
+                let currentTop = window.scrollY;
+                let factor = Math.max(elementTop, currentTop) / Math.min(elementTop, currentTop);
+                if(elementTop < currentTop){
+                    factor *= -1;
+                }
+
+                
+            });
+        })
+    </script>
+</body>
+</html>

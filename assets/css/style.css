@@ -1,0 +1,172 @@
+*{
+    color: white;
+    font-family: 'Segoe UI';
+    font-size: 24px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 20px;
+}
+
+body{
+    margin: 0px;
+}
+
+.chart-area{
+    margin-top: 64px;
+}
+
+.chart-aside{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around
+}
+
+.chart .chart-container{
+    flex: 1;
+    flex-basis: 300px;
+    flex-grow: 0;
+}
+
+.chart .chart-description{
+    align-items: center;
+    display: flex;
+    flex: 2;
+    flex-basis: 500px;
+    padding-left: 128px;
+}
+
+.chart .chart-description > *{
+    flex: 1;
+}
+
+.container{
+    display: block;
+}
+
+.flex-container{
+    display: flex;
+}
+
+.flex-container > *{
+    flex: 1;
+}
+
+.container, .flex-container{
+    margin: auto;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.glacier-container{
+    flex: 1;
+    flex-basis: 252px;
+    flex-grow: 0;
+}
+
+.glacier-container img{
+    width: 100%;
+}
+
+h1{font-size: 48px;}
+h2{font-size: 36px;}
+
+h1, h2, h3, h4, h5, h6{
+    text-align: center;
+}
+
+.list{
+    list-style: none;
+}
+
+.no-base-margin{
+    margin-bottom: -8px;
+}
+
+.subtitle{
+    font-size: 34px;
+}
+
+section{
+    margin-bottom: 128px;
+}
+
+#sectionIntro, #sectionSobre{
+    text-align: center;
+}
+
+ul.menu-vertical{
+    display: flex;
+    margin: 0px;
+}
+
+ul.menu-vertical li{
+    flex: 1;
+    text-align: center;
+}
+
+.glacier-top, .glacier-base, .glacier-bottom{
+    max-width: 252px;
+}
+
+ /*Estilização da superfice*/
+ #superfice{
+    background-image: linear-gradient(to bottom, #12076E, #0872D1);
+    color: white;
+    min-height: 100vh;
+    padding-top: 32px;
+}
+
+#superfice .list b{
+    color: #12076E;
+}
+
+#superfice h1, h2, h3, h4, h5, h6{
+    color: #439BE8;
+    font-weight: 400;
+}
+
+#superfice header{
+    margin-bottom: 64px;
+}
+
+/*Estilização da profundidade*/
+#profundidade{
+    background-image: linear-gradient(to bottom, #12076E,black);
+    min-height: 100vh;
+}
+
+.experiencia{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+/*Experiencias*/
+.experiencia-descricao{
+    flex: 1;
+}
+
+/*Media queries*/
+@media screen and (max-width: 930px){
+    .chart .chart-description{
+        padding-left: 0px;
+    }
+}
+
+@media screen and (max-width: 650px){
+    .glacier-top{
+        width: 100%;
+    }
+
+    .glacier-container{
+        display: none;
+    }
+
+    #profundidade{
+        background-image: url('../images/glacier-base.svg');
+        background-repeat: repeat-y;
+        background-size: cover;
+    }
+}
