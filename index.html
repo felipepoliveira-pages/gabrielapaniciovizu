@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/js/chart.min.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
     <title>Gabriela Panicio Vizu - Psicóloga</title>
 </head>
 <body>
@@ -46,8 +47,13 @@
                 </div>
             </section>
         </main>
-        <div id="experienciasBanner" class="no-base-margin">
-            <img alt="Topo do iceberg" src="assets/images/glacier-top.svg" class="glacier glacier-top">
+        <div class="flex-container no-base-margin" id="bannerExperiencias">
+            <div class="glacier-container">
+                <img alt="Topo do iceberg" src="assets/images/glacier-top.svg" class="glacier glacier-top">
+            </div>
+            <div class="experiencia-descricao">
+                <h2 class="title-darker">EXPERIÊNCIAS</h2>
+            </div>
         </div>
     </div>
     <div id="profundidade">
@@ -66,21 +72,21 @@
                     <img alt="Base do iceberg" src="assets/images/glacier-base.svg" class="glacier glacier-base">
                 </div>
                 <div class="experiencia-descricao">
-                    <h2>TRABALHOS COM GRUPOS RECREATIVOS</h2>
-                    <p>Lar Sírio - Pró-Infância</p>
-                    <p>De 02/2016 até 01/2017</p>
+                    <h2>TRABALHO DE CENTRO DE ATENÇÃO PSICOSSOCIAL</h2>
+                    <p>Caps Adulto II Guaianases Artur Bispo do Rosario</p>
+                    <p>De 01/2018 até hoje</p>
                 </div>
             </div>
             <div class="experiencia no-base-margin">
-                    <div class="glacier-container">
-                        <img alt="Base do iceberg" src="assets/images/glacier-base.svg" class="glacier glacier-base">
-                    </div>
-                    <div class="experiencia-descricao">
-                        <h2>TRABALHOS COM GRUPOS RECREATIVOS</h2>
-                        <p>Lar Sírio - Pró-Infância</p>
-                        <p>De 02/2016 até 01/2017</p>
-                    </div>
+                <div class="glacier-container">
+                    <img alt="Base do iceberg" src="assets/images/glacier-base.svg" class="glacier glacier-base">
                 </div>
+                <div class="experiencia-descricao">
+                    <h2>ESTUDO MAPPA, coordenado por Guilherme Polanczyk</h2>
+                    <p>Hospital das Clínicas - IPQ</p>
+                    <p>De 01/2018 até hoje</p>
+                </div>
+            </div>
             <div class="glacier-container">
                 <img alt="Base do iceberg" src="assets/images/glacier-bottom.svg" class="glacier glacier-bottom">
             </div>
@@ -97,25 +103,24 @@
                         data: [80, 20],
                         backgroundColor: [
                             '#12076E',
-                            'rgba(0, 0, 0, 0)',
+                            '#439BE8',
                         ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-
                         borderWidth: 0
-                    }]
+                    }],
+
+                    labels : ["8 Semestres conclúidos", "2 semestres restantes"]
                 },
 
                 options : {
+                    legend : {
+                        labels : {
+                            fontColor : "white",
+                            fontSize : 18
+                        }
+                    },
                     rotation : 45.8,
                     tooltips: {
-                        enabled : false
+
                     }
                 }
             });
@@ -146,6 +151,23 @@
                 
             });
         })
+    </script>
+
+    <!-- Scroll Reveal-->
+    <script>
+            let sr = ScrollReveal();
+
+            sr.reveal('#superfice > *:not(.no-base-margin)', {
+                duration : 1000
+            }, 200);
+
+            sr.reveal('.glacier-container, #profundidade *', {
+                duration : 2000,
+                origin : 'left',
+                scale : 1
+            }, 50);
+
+            
     </script>
 </body>
 </html>

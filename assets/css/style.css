@@ -1,4 +1,5 @@
 *{
+    box-sizing: border-box;
     color: white;
     font-family: 'Segoe UI';
     font-size: 24px;
@@ -11,6 +12,10 @@ a{
 
 body{
     margin: 0px;
+}
+
+#bannerExperiencias{
+    max-width: 100vw;
 }
 
 .chart-area{
@@ -96,6 +101,10 @@ section{
     text-align: center;
 }
 
+.title-darker{
+    color: #12076E;
+}
+
 ul.menu-vertical{
     display: flex;
     margin: 0px;
@@ -106,8 +115,12 @@ ul.menu-vertical li{
     text-align: center;
 }
 
-.glacier-top, .glacier-base, .glacier-bottom{
+.glacier-bottom{
     max-width: 252px;
+}
+
+.glacier-top, .glacier-base, .glacier-bottom{
+    width: 252px;
 }
 
  /*Estilização da superfice*/
@@ -146,6 +159,7 @@ ul.menu-vertical li{
 /*Experiencias*/
 .experiencia-descricao{
     flex: 1;
+    padding-top: 64px;
 }
 
 /*Media queries*/
@@ -156,6 +170,13 @@ ul.menu-vertical li{
 }
 
 @media screen and (max-width: 650px){
+    #bannerExperiencias{
+        background-image: url('../images/glacier-top.svg');
+        background-size: cover;
+        min-height: 252px;
+        width: 100%:
+    }
+
     .glacier-top{
         width: 100%;
     }
@@ -169,4 +190,9 @@ ul.menu-vertical li{
         background-repeat: repeat-y;
         background-size: cover;
     }
+
+    #profundidade .experiencia-descricao{
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    
 }
